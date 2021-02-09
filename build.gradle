@@ -24,13 +24,13 @@ allprojects {
         jcenter()
     }
 }
-tasks.register("version") {
+task test() {
     doLast {
-        //val versionname =  VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH
-        //val versionCode =  VERSION_BUILD
-        println("$VERSION_BUILD")
-       // println("$versionname")
-    }
+        val versionname =  VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH
+        val versionCode =  VERSION_BUILD
+        println($versionname)
+        println("$versionname")
+  }
 }
 
 task clean(type: Delete) {
