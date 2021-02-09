@@ -33,7 +33,7 @@ project {
 }
 
 object BuildTeamcity : BuildType({
-    name = "Build-Teamcity"
+    name = "Build-Teamcity Project"
 
     vcs {
         root(DslContext.settingsRoot)
@@ -50,6 +50,10 @@ object BuildTeamcity : BuildType({
 
     triggers {
         vcs {
+            triggerRules ="""
+            -:*.md
+            -:.gitignore
+            """.trimIndent()
         }
     }
 
