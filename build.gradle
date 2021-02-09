@@ -26,9 +26,9 @@ allprojects {
 }
 task test() {
     doLast {
-        val versionname =  VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH
-        val versionCode =  VERSION_BUILD
-        println($versionname)
+        String versionname =  VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH
+        String versionCode =  VERSION_BUILD
+        println("$versionname")
         println("$versionname")
   }
 }
