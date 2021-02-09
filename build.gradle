@@ -24,12 +24,12 @@ allprojects {
         jcenter()
     }
 }
-task test() {
+task printPro {
     doLast {
-        String versionname =  VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH
+        String versionName =  VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH
         String versionCode =  VERSION_BUILD
-        println("$versionname")
-        println("$versionname")
+        println "$versionName"
+        println "$versionCode"
   }
 }
 
