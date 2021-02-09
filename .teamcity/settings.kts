@@ -1,7 +1,10 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
+import java.io.BufferedReader
+import java.io.File
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -33,6 +36,23 @@ project {
     buildType(BuildTeamcity)
 }
 
+fun readScript(path: String): String {
+    val bufferedReader: BufferedReader = File(path).bufferedReader()
+    return bufferedReader.use { it.readText() }.trimIndent()
+}
+object CommandLineRunnerTest : BuildType({
+    name = "Command Line Runner Test"
+    steps {
+        script {
+            name = "Imported from a file"
+            id = "script.from.file.1"
+            scriptContent = readScript("scripts\\test.sh")
+        }
+        stepsOrder = arrayListOf("script.from.file.1")
+    }
+})
+
+
 object BuildTeamcity : BuildType({
     name = "Build-Teamcity"
 
@@ -42,13 +62,20 @@ object BuildTeamcity : BuildType({
 
     steps {
         gradle {
-            tasks = "clean build"
-            gradleWrapperPath = "gradle/wrapper"
+            //tasks = "clean build"
+
+            tasks = "printPro"
+            gradleWrapperPath = ""
+            gradleParams = "--info --stacktrace"
         }
     }
 
     triggers {
         vcs {
+            triggerRules ="""
+            -:*.md
+            -:.gitignore
+            """.trimIndent()
         }
     }
 
