@@ -30,7 +30,7 @@ task printPro {
         String versionCode =  VERSION_BUILD
         println "$versionName"
         println "$versionCode"
-        println "${teamcity['teamcity.build.id']}"
+        println "${teamcity['build.number']}"
   }
 }
 
