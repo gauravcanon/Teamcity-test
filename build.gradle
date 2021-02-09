@@ -24,6 +24,14 @@ allprojects {
         jcenter()
     }
 }
+tasks.register("version") {
+    doLast {
+        val versionname =  VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH
+        val versionCode =  VERSION_BUILD
+        println("$versionname")
+        println("$versionname")
+    }
+}
 
 task clean(type: Delete) {
     delete rootProject.buildDir

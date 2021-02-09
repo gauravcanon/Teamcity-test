@@ -42,7 +42,7 @@ object BuildTeamcity : BuildType({
     steps {
         gradle {
             tasks = "clean build"
-            gradleWrapperPath = ""
+            gradleWrapperPath = "gradle/wrapper"
         }
     }
 
