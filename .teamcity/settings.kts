@@ -63,6 +63,7 @@ object BuildTeamcity : BuildType({
     steps {
         gradle {
             //tasks = "clean build"
+
             tasks = "printPro"
             gradleWrapperPath = ""
             gradleParams = "--info --stacktrace"
