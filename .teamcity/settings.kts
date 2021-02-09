@@ -46,7 +46,7 @@ object CommandLineRunnerTest : BuildType({
         script {
             name = "Imported from a file"
             id = "script.from.file.1"
-            scriptContent = readScript("\\test.sh")
+            scriptContent = readScript("scripts\\test.sh")
         }
         stepsOrder = arrayListOf("script.from.file.1")
     }
