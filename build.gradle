@@ -1,3 +1,7 @@
+def VERSION_BUILD=36
+def VERSION_MAJOR=1
+def VERSION_MINOR=1
+def VERSION_PATCH=3
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.4.30"
