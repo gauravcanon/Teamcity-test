@@ -24,9 +24,10 @@ allprojects {
         jcenter()
     }
 }
+
 task printPro {
     doLast {
-        def propertyFile = file "test.properties"
+        def propertyFile = file ".teamcity/test.properties"
         def props = new Properties()
         propertyFile.withReader { props.load(it) }
         println "Before setProperty:"
