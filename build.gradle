@@ -26,10 +26,10 @@ allprojects {
 }
 tasks.register("version") {
     doLast {
-        val versionname =  VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH
-        val versionCode =  VERSION_BUILD
-        println("$versionname")
-        println("$versionname")
+        //val versionname =  VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH
+        //val versionCode =  VERSION_BUILD
+        println("$VERSION_BUILD")
+       // println("$versionname")
     }
 }
 
