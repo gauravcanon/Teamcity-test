@@ -1,3 +1,3 @@
-#!/bin/bash
-# Print Hello world message
-echo "It's fucking read"
+#!/usr/bin/env bash
+VERSION=1.0
+echo $VERSION

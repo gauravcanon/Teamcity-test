@@ -6,6 +6,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 import java.io.BufferedReader
 import java.io.File
 
+
 /*
 The settings script is an entry point for defining a TeamCity
 project hierarchy. The script should contain a single call to the
@@ -45,7 +46,7 @@ object CommandLineRunnerTest : BuildType({
         script {
             name = "Imported from a file"
             id = "script.from.file.1"
-            scriptContent = readScript("test.sh")
+            scriptContent = readScript("\\test.sh")
         }
         stepsOrder = arrayListOf("script.from.file.1")
     }
