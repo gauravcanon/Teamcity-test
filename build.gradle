@@ -4,7 +4,7 @@ def VERSION_MINOR=1
 def VERSION_PATCH=3
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.30"
+    ext.kotlin_version = "1.4.10"
     repositories {
         google()
         jcenter()
@@ -30,6 +30,7 @@ task printPro {
         String versionCode =  VERSION_BUILD
         println "$versionName"
         println "$versionCode"
+        println "${teamcity['teamcity.build.id']}"
   }
 }
 
