@@ -36,21 +36,21 @@ project {
     buildType(BuildTeamcity)
 }
 
-fun readScript(path: String): String {
-    val bufferedReader: BufferedReader = File(path).bufferedReader()
-    return bufferedReader.use { it.readText() }.trimIndent()
-}
-object CommandLineRunnerTest : BuildType({
-    name = "Command Line Runner Test"
-    steps {
-        script {
-            name = "Imported from a file"
-            id = "script.from.file.1"
-            scriptContent = readScript("scripts\\test.sh")
-        }
-        stepsOrder = arrayListOf("script.from.file.1")
-    }
-})
+//fun readScript(path: String): String {
+//    val bufferedReader: BufferedReader = File(path).bufferedReader()
+//    return bufferedReader.use { it.readText() }.trimIndent()
+//}
+//object CommandLineRunnerTest : BuildType({
+//    name = "Command Line Runner Test"
+//    steps {
+//        script {
+//            name = "Imported from a file"
+//            id = "script.from.file.1"
+//            scriptContent = readScript("scripts\\test.sh")
+//        }
+//        stepsOrder = arrayListOf("script.from.file.1")
+//    }
+//})
 
 
 object BuildTeamcity : BuildType({
