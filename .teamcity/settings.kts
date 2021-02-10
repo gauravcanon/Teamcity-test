@@ -54,7 +54,7 @@ object BuildTeamcity : BuildType({
             scriptContent = """
                             #!/usr/bin/env bash
                             VERSION=1.0
-                            echo ${'$'}VERSION
+                            echo ${'$'}VERSION >> test.txt
                             """.trimIndent()
         }
         stepsOrder = arrayListOf("script.from.file.1")
