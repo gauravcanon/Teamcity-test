@@ -3,7 +3,10 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.commitStatusPu
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.PowerShellStep
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.powerShell
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
+import java.io.BufferedReader
+import java.io.File
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -43,7 +46,7 @@ fun readScript(path: String): String {
 
 object BuildTeamcity : BuildType({
     name = "Build-Teamcity"
-
+    buildNumberPattern = "%system.MajorMinorVersion.Develop%.%build.counter%"
     params {
         param("system.MajorMinorVersion.Master", "1.1")
         param("system.MajorMinorVersion.Develop", "1.5")
@@ -54,22 +57,22 @@ object BuildTeamcity : BuildType({
     }
 
     steps {
-        powerShell {
-            name = "Poweshell Test"
-            id = "RUNNER_1"
-            workingDir = ".teamcity"
-            platform = PowerShellStep.Platform.x64
-            scriptMode = file {
-                path = "scripts\\powershell.ps1"
-            }
-        }
+//        powerShell {
+//            name = "Poweshell Test"
+//            id = "RUNNER_1"
+//            workingDir = ".teamcity"
+//            platform = PowerShellStep.Platform.x64
+//            scriptMode = file {
+//                path = "scripts/powershell.ps1"
+//            }
+//        }
 
-        script {
-            name = "Command Line Runner Test"
-            workingDir = ".teamcity"
-            scriptContent = readScript("scripts/test.sh")
-        }
-        stepsOrder = arrayListOf("script.from.file.1")
+//        script {
+//            name = "Imported from a file"
+//            //workingDir = ".teamcity"
+//            scriptContent = readScript("scripts/test.sh")
+//        }
+//        stepsOrder = arrayListOf("script.from.file.1")
 
         gradle {
             id = "RUNNER_2"
