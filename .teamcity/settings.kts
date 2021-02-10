@@ -67,12 +67,6 @@ object BuildTeamcity : BuildType({
 //            }
 //        }
 
-//        script {
-//            name = "Imported from a file"
-//            //workingDir = ".teamcity"
-//            scriptContent = readScript("scripts/test.sh")
-//        }
-//        stepsOrder = arrayListOf("script.from.file.1")
 
         gradle {
             id = "RUNNER_2"
