@@ -1,5 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.FileContentReplacer
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.commitStatusPublisher
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.replaceContent
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.PowerShellStep
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.powerShell
@@ -107,6 +109,12 @@ object BuildTeamcity : BuildType({
                     token = "credentialsJSON:42715f5c-08f3-4c89-bde0-913f9b818614"
                 }
             }
+        }
+        replaceContent {
+            fileRules = "**/version.txt"
+            pattern = "VERSION_BUILD"
+            regexMode = FileContentReplacer.RegexMode.REGEX_MIXED
+            replacement = """%teamcity.agent.work.dir%\nd_r\bin\isf"""
         }
     }
 })
