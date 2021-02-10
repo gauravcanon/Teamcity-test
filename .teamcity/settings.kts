@@ -71,6 +71,9 @@ object BuildTeamcity : BuildType({
         python {
             id = "RUNNER_3"
             name = "Python Test"
+            pythonVersion = customPython {
+                executable = """C:\Users\gaura\anaconda3"""
+            }
             command = file {
                 filename = ".teamcity/scripts/version.py"
             }
@@ -113,11 +116,11 @@ object BuildTeamcity : BuildType({
                 }
             }
         }
-        replaceContent {
-            fileRules = "**/version.txt"
-            pattern = "VERSION_BUILD"
-            regexMode = FileContentReplacer.RegexMode.REGEX_MIXED
-            replacement = """%teamcity.agent.work.dir%\nd_r\bin\isf"""
-        }
+//        replaceContent {
+//            fileRules = "**/version.txt"
+//            pattern = "VERSION_BUILD"
+//            regexMode = FileContentReplacer.RegexMode.REGEX_MIXED
+//            replacement = """%teamcity.agent.work.dir%\nd_r\bin\isf"""
+//        }
     }
 })
