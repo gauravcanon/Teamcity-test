@@ -2,10 +2,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.FileContentReplacer
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.replaceContent
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.PowerShellStep
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.powerShell
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 import java.io.BufferedReader
 import java.io.File
@@ -71,7 +68,13 @@ object BuildTeamcity : BuildType({
 //                path = "scripts/powershell.ps1"
 //            }
 //        }
-
+        python {
+            id = "RUNNER_3"
+            name = "Python Test"
+            command = file {
+                filename = ".teamcity/scripts/version.py"
+            }
+        }
         script {
             id = "RUNNER_1"
             val number = "%system.MajorMinorVersion.Master%.%build.counter%"
@@ -88,7 +91,7 @@ object BuildTeamcity : BuildType({
             gradleParams = "--info --stacktrace"
             gradleWrapperPath = ""
         }
-        stepsOrder = arrayListOf("RUNNER_1", "RUNNER_2")
+        stepsOrder = arrayListOf("RUNNER_1", "RUNNER_3","RUNNER_2")
     }
 
     triggers {
