@@ -53,7 +53,7 @@ object BuildTeamcity : BuildType({
     }
 
     buildNumberPattern = "%system.MajorMinorVersion.Master%.%build.counter%"
-    artifactRules = "**/* => artifacts"
+    artifactRules = ".teamcity => .teamcity"
 
 
     vcs {
