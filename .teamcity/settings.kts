@@ -49,6 +49,7 @@ object BuildTeamcity : BuildType({
     params {
         param("system.MajorMinorVersion.Master", "1.1")
         param("system.MajorMinorVersion.Develop", "1.5")
+        param("env.PYTHONPATH", """C:\Users\gaura\AppData\Local\Programs\Python\Python39""")
     }
 
     buildNumberPattern = "%system.MajorMinorVersion.Master%.%build.counter%"
@@ -71,9 +72,9 @@ object BuildTeamcity : BuildType({
         python {
             id = "RUNNER_3"
             name = "Python Test"
-            pythonVersion = customPython {
-                executable = """C:\Users\gaura\AppData\Local\Programs\Python\Python39"""
-            }
+//            pythonVersion = customPython {
+//                executable = """C:\Users\gaura\AppData\Local\Programs\Python\Python39"""
+//            }
             command = file {
                 filename = ".teamcity/scripts/version.py"
             }
