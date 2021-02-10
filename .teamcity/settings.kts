@@ -51,6 +51,7 @@ object BuildTeamcity : BuildType({
         powerShell {
             name = "Poweshell Test"
             id = "RUNNER_1"
+            workingDir = ".teamcity"
             platform = PowerShellStep.Platform.x64
             scriptMode = file {
                 path = "scripts\\powershell.ps1"
