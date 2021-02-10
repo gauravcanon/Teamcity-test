@@ -71,9 +71,9 @@ object BuildTeamcity : BuildType({
         python {
             id = "RUNNER_3"
             name = "Python Test"
-//            pythonVersion = customPython {
-//                executable = """C:\Users\gaura\anaconda3\envs\pythonProject"""
-//            }
+            pythonVersion = customPython {
+                executable = """C:\Users\gaura\AppData\Local\Programs\Python\Python39"""
+            }
             command = file {
                 filename = ".teamcity/scripts/version.py"
             }
