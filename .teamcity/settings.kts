@@ -53,7 +53,7 @@ object BuildTeamcity : BuildType({
             id = "RUNNER_1"
             platform = PowerShellStep.Platform.x64
             scriptMode = file {
-                path = "poweshell.ps1"
+                path = "scripts\\powershell.ps1"
             }
         }
         gradle {
