@@ -70,7 +70,7 @@ object BuildTeamcity : BuildType({
 
         script {
             id = "RUNNER_1"
-            scriptContent= """echo "Branch is  %teamcity.build.branch%""""
+            scriptContent= """echo "Build number is %system.MajorMinorVersion.Develop%.%build.counter%""""
         }
 
         gradle {
