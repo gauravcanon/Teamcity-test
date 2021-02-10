@@ -75,16 +75,4 @@ object BuildTeamcity : BuildType({
             """.trimIndent()
         }
     }
-
-    features {
-        commitStatusPublisher {
-            publisher = github {
-                githubUrl = "https://api.github.com"
-                authType = personalToken {
-                    token = "credentialsJSON:0daa7aae-da98-41c6-ab6f-bbbd9daefe83"
-                }
-            }
-            param("github_oauth_user", "gauravcanon")
-        }
-    }
 })
