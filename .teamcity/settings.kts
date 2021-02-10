@@ -51,6 +51,7 @@ object BuildTeamcity : BuildType({
         param("system.MajorMinorVersion.Master", "1.1")
         param("system.MajorMinorVersion.Develop", "1.5")
     }
+    print(buildNumberPattern)
 
     vcs {
         root(DslContext.settingsRoot)
