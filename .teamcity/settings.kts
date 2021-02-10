@@ -40,18 +40,6 @@ project {
 //    val bufferedReader: BufferedReader = File(path).bufferedReader()
 //    return bufferedReader.use { it.readText() }.trimIndent()
 //}
-//object CommandLineRunnerTest : BuildType({
-//    name = "Command Line Runner Test"
-//    steps {
-//        script {
-//            name = "Imported from a file"
-//            id = "script.from.file.1"
-//            scriptContent = readScript("scripts\\test.sh")
-//        }
-//        stepsOrder = arrayListOf("script.from.file.1")
-//    }
-//})
-
 
 object BuildTeamcity : BuildType({
     name = "Build-Teamcity"
@@ -61,6 +49,15 @@ object BuildTeamcity : BuildType({
     }
 
     steps {
+        script {
+            name = "Command Line Runner Test"
+            scriptContent = """
+                            #!/usr/bin/env bash
+                            VERSION=1.0
+                            echo ${'$'}VERSION
+                            """.trimIndent()
+        }
+        stepsOrder = arrayListOf("script.from.file.1")
         gradle {
             //tasks = "clean build"
 
