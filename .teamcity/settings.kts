@@ -46,11 +46,13 @@ fun readScript(path: String): String {
 
 object BuildTeamcity : BuildType({
     name = "Build-Teamcity"
-    buildNumberPattern = "%system.MajorMinorVersion.Develop%.%build.counter%"
+
     params {
         param("system.MajorMinorVersion.Master", "1.1")
         param("system.MajorMinorVersion.Develop", "1.5")
     }
+
+    buildNumberPattern = "%system.MajorMinorVersion.Master%.%build.counter%"
 
 
     vcs {
@@ -70,7 +72,8 @@ object BuildTeamcity : BuildType({
 
         script {
             id = "RUNNER_1"
-            scriptContent= """echo "Build number is %system.MajorMinorVersion.Develop%.%build.counter%""""
+            val number = "%system.MajorMinorVersion.Master%.%build.counter%"
+            scriptContent= """echo "Build number is  $number""""
         }
 
         gradle {
