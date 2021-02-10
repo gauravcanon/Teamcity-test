@@ -39,8 +39,8 @@ object BuildTeamcity : BuildType({
     name = "Build-Teamcity"
 
     params {
-        param("system.MajorMinorVersion.Master", "1.1.14")
-        param("system.MajorMinorVersion.Develop", "1.1.13")
+        param("system.MajorMinorVersion.Master", "1.1")
+        param("system.MajorMinorVersion.Develop", "1.5")
     }
 
     vcs {
