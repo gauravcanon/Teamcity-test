@@ -71,9 +71,9 @@ object BuildTeamcity : BuildType({
         python {
             id = "RUNNER_3"
             name = "Python Test"
-            pythonVersion = customPython {
-                executable = "%PYTHOPATH%"
-            }
+//            pythonVersion = customPython {
+//                executable = "%PYTHOPATH%"
+//            }
             command = file {
                 filename = ".teamcity/scripts/version.py"
             }
