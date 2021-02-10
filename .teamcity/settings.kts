@@ -73,6 +73,7 @@ object BuildTeamcity : BuildType({
         script {
             id = "RUNNER_1"
             val number = "%system.MajorMinorVersion.Master%.%build.counter%"
+            workingDir = ".teamcity"
             scriptContent= """
                 echo "Build number is  $number"
                 echo "$number" >> logfile.txt
