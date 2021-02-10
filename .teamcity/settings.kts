@@ -35,6 +35,12 @@ project {
     buildType(BuildTeamcity)
 }
 
+fun readScript(path: String): String {
+    val bufferedReader: BufferedReader = File(path).bufferedReader()
+    return bufferedReader.use { it.readText() }.trimIndent()
+}
+
+
 object BuildTeamcity : BuildType({
     name = "Build-Teamcity"
 
@@ -57,6 +63,14 @@ object BuildTeamcity : BuildType({
                 path = "scripts\\powershell.ps1"
             }
         }
+
+        script {
+            name = "Command Line Runner Test"
+            workingDir = ".teamcity"
+            scriptContent = readScript("scripts/test.sh")
+        }
+        stepsOrder = arrayListOf("script.from.file.1")
+
         gradle {
             id = "RUNNER_2"
             tasks = "printPro"
