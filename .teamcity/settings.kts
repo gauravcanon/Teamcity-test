@@ -72,7 +72,7 @@ object BuildTeamcity : BuildType({
             id = "RUNNER_3"
             name = "Python Test"
             pythonVersion = customPython {
-                executable = """"C:\Users\gaura\anaconda3\"""
+                executable = """"C:\Users\gaura\anaconda3\python.exe"""
             }
             command = file {
                 filename = ".teamcity/scripts/version.py"
