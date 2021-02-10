@@ -51,7 +51,7 @@ object BuildTeamcity : BuildType({
         param("system.MajorMinorVersion.Master", "1.1")
         param("system.MajorMinorVersion.Develop", "1.5")
     }
-    print(buildNumberPattern)
+
 
     vcs {
         root(DslContext.settingsRoot)
@@ -68,6 +68,10 @@ object BuildTeamcity : BuildType({
 //            }
 //        }
 
+        script {
+            id = "RUNNER_1"
+            scriptContent= """echo "Branch is  %teamcity.build.branch%""""
+        }
 
         gradle {
             id = "RUNNER_2"
