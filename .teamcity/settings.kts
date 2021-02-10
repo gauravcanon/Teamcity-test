@@ -31,7 +31,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2020.2"
 
 project {
-    description = "TEamcity Kotlin DSL Test"
+    description = "Teamcity Kotlin DSL Test on Local and Server"
 
     buildType(BuildTeamcity)
 }
@@ -54,7 +54,7 @@ object BuildTeamcity : BuildType({
             scriptContent = """
                             #!/usr/bin/env bash
                             VERSION=1.0
-                            echo ${'$'}VERSION >> test.txt
+                            echo ${'$'}VERSION
                             """.trimIndent()
         }
         stepsOrder = arrayListOf("script.from.file.1")
