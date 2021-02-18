@@ -15,7 +15,6 @@ print("version_patch= "+version_build)
 print("version_major= "+version_major)
 print("version_minor= "+version_minor)
 print("version_patch= "+version_patch)
-
-print('%build.counter%')
-build_number = '##teamcity[buildNumber \'{}.{}.{}\']'.format(version_major,version_minor,version_patch)
+counter = '%build.counter%'
+build_number = '##teamcity[buildNumber \'{}.{}.{}.{}\']'.format(counter,version_major,version_minor,version_patch)
 print(build_number)
