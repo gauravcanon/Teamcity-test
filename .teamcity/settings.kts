@@ -95,7 +95,7 @@ object BuildTeamcity : BuildType({
             gradleParams = "--info --stacktrace"
             gradleWrapperPath = ""
         }
-        stepsOrder = arrayListOf("RUNNER_1","RUNNER_2","RUNNER_3")
+        stepsOrder = arrayListOf("RUNNER_1","RUNNER_3","RUNNER_2")
     }
 
     triggers {
