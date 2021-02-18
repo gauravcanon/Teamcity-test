@@ -7,10 +7,11 @@ with open(".teamcity/version.txt") as f:
         words = val.split("=")
         values.append(words[1])
 
-    version_build = values[0]
+    version_build = values[0] + 1
     version_major = values[1]
     version_minor = values[2]
     version_patch = values[3]
+    counter = '%build.counter%'+1
 
     print("version_patch= "+version_build)
     print("version_major= "+version_major)
@@ -20,5 +21,5 @@ with open(".teamcity/version.txt") as f:
 #     branch = '%teamcity.build.branch%'
 #     counter = '%build.counter%'
 #     agent = '%teamcity.agent.name%'
-    build_number = '##teamcity[buildNumber \'{} / {} / {}\']'.format(version_build, version_major, version_minor)
+    build_number = '##teamcity[buildNumber \'{}.{}.{}.{}\']'.format(counter,version_major, version_minor,version_patch)
     print(build_number)
