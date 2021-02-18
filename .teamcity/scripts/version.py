@@ -7,7 +7,7 @@ with open(".teamcity/version.txt") as f:
         words = val.split("=")
         values.append(words[1])
 
-    version_build = values[0] + 1
+    version_build = values[0]
     version_major = values[1]
     version_minor = values[2]
     version_patch = values[3]
