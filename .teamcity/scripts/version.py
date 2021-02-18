@@ -18,7 +18,7 @@ with open(".teamcity/version.txt") as f:
     print("version_patch= "+version_patch)
 
     counter = "%build.counter%"
-    print("build counter teamcity= "+ counter )
+    print(counter)
 #     branch = '%teamcity.build.branch%'
 #     counter = '%build.counter%'
 #     agent = '%teamcity.agent.name%'

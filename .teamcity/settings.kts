@@ -52,7 +52,7 @@ object BuildTeamcity : BuildType({
         param("PYTHON_EXECUTABLE", "python")
     }
 
-    buildNumberPattern = "%system.MajorMinorVersion.Master%.%build.counter%"
+//    buildNumberPattern = "%system.MajorMinorVersion.Master%.%build.counter%"
 
 
     vcs {
