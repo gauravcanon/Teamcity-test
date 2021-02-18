@@ -16,9 +16,10 @@ with open(".teamcity/version.txt") as f:
     print("version_major= "+version_major)
     print("version_minor= "+version_minor)
     print("version_patch= "+version_patch)
-
+    counter = '%build.counter%'
+    print("build counter teamcity= "+counter)
 #     branch = '%teamcity.build.branch%'
 #     counter = '%build.counter%'
 #     agent = '%teamcity.agent.name%'
-    build_number = '##teamcity[buildNumber \'%build.counter%.{}.{}.{}\']'.format(version_major,version_minor,version_patch)
+    build_number = '##teamcity[buildNumber \'{}.{}.{}.{}\']'.format(counter,version_major,version_minor,version_patch)
     print(build_number)
