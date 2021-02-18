@@ -1,3 +1,4 @@
+import sys
 with open(".teamcity/version.txt") as f:
     file_content = f.read().rstrip("\n")
     lines = file_content.split("\n")
@@ -15,6 +16,7 @@ print("version_patch= "+version_build)
 print("version_major= "+version_major)
 print("version_minor= "+version_minor)
 print("version_patch= "+version_patch)
-counter = '%build.counter%'
+counter = (sys.argv)
+print (counter)
 build_number = '##teamcity[buildNumber \'{}.{}.{}.{}\']'.format(counter,version_major,version_minor,version_patch)
 print(build_number)
