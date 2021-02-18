@@ -73,7 +73,7 @@ object BuildTeamcity : BuildType({
             id = "RUNNER_3"
             name = "Python Test"
             pythonVersion = customPython {
-                arguments = "%build.counter%"
+//                arguments = "%build.counter%"
                 executable = "%PYTHON_EXECUTABLE%"
             }
             command = file {
