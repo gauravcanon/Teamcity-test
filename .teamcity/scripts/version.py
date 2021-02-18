@@ -11,7 +11,7 @@ with open(".teamcity/version.txt") as f:
     version_major = values[1]
     version_minor = values[2]
     version_patch = values[3]
-    counter = '%build.counter%'+1
+    counter = '%build.counter%'
 
     print("version_patch= "+version_build)
     print("version_major= "+version_major)
