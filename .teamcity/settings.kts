@@ -69,17 +69,17 @@ object BuildTeamcity : BuildType({
 //                path = "scripts/powershell.ps1"
 //            }
 //        }
-        python {
-            id = "RUNNER_3"
-            name = "Python Test"
-            pythonVersion = customPython {
-                arguments = "%build.counter%"
-                executable = "%PYTHON_EXECUTABLE%"
-            }
-            command = file {
-                filename = ".teamcity/scripts/version.py"
-            }
-        }
+//        python {
+//            id = "RUNNER_3"
+//            name = "Python Test"
+//            pythonVersion = customPython {
+//                arguments = "%build.counter%"
+//                executable = "%PYTHON_EXECUTABLE%"
+//            }
+//            command = file {
+//                filename = ".teamcity/scripts/version.py"
+//            }
+//        }
 
 //        python {
 //            id = "RUNNER_3"
@@ -110,6 +110,12 @@ object BuildTeamcity : BuildType({
 //            }
 //        }
 
+        exec {
+            name = "Python Test"
+            id = "RUNNER_3"
+            path = ".teamcity/scripts/version.py"
+            arguments = "%build.counter%"
+        }
 
         script {
             id = "RUNNER_1"
