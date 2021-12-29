@@ -72,10 +72,10 @@ object BuildTeamcity : BuildType({
         python {
             id = "RUNNER_3"
             name = "Python Test"
-            pythonVersion = customPython {
-//                arguments = "%build.counter%"
-                executable = "%PYTHON_EXECUTABLE%"
-            }
+//            pythonVersion = customPython {
+////                arguments = "%build.counter%"
+//                executable = "%PYTHON_EXECUTABLE%"
+//            }
             command = file {
                 filename = ".teamcity/scripts/version.py"
             }
