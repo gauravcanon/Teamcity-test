@@ -49,7 +49,7 @@ object BuildTeamcity : BuildType({
     params {
         param("system.MajorMinorVersion.Master", "1.1")
         param("system.MajorMinorVersion.Develop", "1.5")
-        param("PYTHON_EXECUTABLE", "python")
+        param("PYTHON_EXECUTABLE", "/usr/bin/python3")
     }
 
 //    buildNumberPattern = "%system.MajorMinorVersion.Master%.%build.counter%"
@@ -72,10 +72,10 @@ object BuildTeamcity : BuildType({
         python {
             id = "RUNNER_3"
             name = "Python Test"
-//            pythonVersion = customPython {
-////                arguments = "%build.counter%"
-//                executable = "%PYTHON_EXECUTABLE%"
-//            }
+            pythonVersion = customPython {
+//                arguments = "%build.counter%"
+                executable = "%PYTHON_EXECUTABLE%"
+            }
             command = file {
                 filename = ".teamcity/scripts/version.py"
             }
